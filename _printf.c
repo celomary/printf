@@ -11,6 +11,8 @@ int	_printf(const char *format, ...)
 	int		printed;
 	int		iterator;
 
+	if (format == NULL)
+		return (-1);
 	printed = 0;
 	iterator = 0;
 	va_start(ap, format);
