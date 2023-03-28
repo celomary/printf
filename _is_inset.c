@@ -1,5 +1,3 @@
-#include "printf.h"
-
 /**
  * _is_inset - check wether given character is in set or not
  *

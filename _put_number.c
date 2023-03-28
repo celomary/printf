@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "main.h"
 /**
  * _reverse_number - reverse the given number and returns it
  *

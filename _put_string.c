@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "main.h"
 /**
  * _put_string - prints the giver characters
  *

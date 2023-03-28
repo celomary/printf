@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "main.h"
 /**
  * _putchar - function print only one character
  *
