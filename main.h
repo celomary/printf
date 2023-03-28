@@ -2,6 +2,7 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
 
 void	_putchar(char);
 int		_is_inset(char, const char *);
