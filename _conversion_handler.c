@@ -20,7 +20,7 @@ int		_conversion_handler(va_list *ap, char conversion)
 	}
 	else if (conversion == 'd' || conversion == 'i')
 	{
-		return (_put_number(va_arg(*ap, int)));
+		return (_put_number(va_arg(*ap, long int)));
 	}
 	else if (conversion == '%')
 	{
