@@ -10,7 +10,12 @@ int		_put_string(const char *s)
 	int		len;
 
 	len = 0;
-	while (s[len])
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		len = 6;
+	}
+	while (s && s[len])
 	{
 		_putchar(s[len]);
 		len++;
