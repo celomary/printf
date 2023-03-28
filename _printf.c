@@ -1,4 +1,17 @@
 #include "main.h"
+
+/**
+ * skip_whitespace - function that skip white space that comes after %
+ *
+ * @format: format to check for white space
+ * @iterator: pointer to current position in the format
+ * Return: nothing
+ */
+void	skip_whitespace(const char *format, int *iterator)
+{
+	while (format[++(*iterator)] == ' ')
+	;
+}
 /**
  * _printf - function that produce output according to the format
  *
@@ -20,15 +33,16 @@ int	_printf(const char *format, ...)
 	{
 		if (format[iterator] == '%')
 		{
-			if (_is_inset(format[iterator + 1], AVAILABLE_CONVERSION))
-			{
-				iterator++;
+			skip_whitespace(format, &iterator);
+			if (_is_inset(format[iterator], AVAILABLE_CONVERSION))
 				printed += _conversion_handler(&ap, format[iterator]);
-			}
 			else
 			{
+				if (format[iterator] == '\0')
+					return (-1);
+				_putchar('%');
 				_putchar(format[iterator]);
-				printed++;
+				printed += 2;
 			}
 		}
 		else
