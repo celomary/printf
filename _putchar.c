@@ -8,5 +8,5 @@
 
 void	_putchar(char c)
 {
-	write(STD_OUTPUT, &c, 1);
+	write(1, &c, 1);
 }

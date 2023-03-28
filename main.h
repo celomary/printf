@@ -3,8 +3,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-#define STD_OUTPUT 1
-#define AVAILABLE_CONVERSION "csdi%"
 void	_putchar(char);
 int		_is_inset(char, const char *);
 int		_put_number(long int number);
