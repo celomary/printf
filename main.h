@@ -2,8 +2,9 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdio.h>
 
+#define STD_OUTPUT 1
+#define AVAILABLE_CONVERSION "cs%"
 void	_putchar(char);
 int		_is_inset(char, const char *);
 int		_put_number(long int number);

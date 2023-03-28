@@ -18,7 +18,7 @@ int	_printf(const char *format, ...)
 	{
 		if (format[iterator] == '%')
 		{
-			if (_is_inset(format[iterator + 1], "csdi%"))
+			if (_is_inset(format[iterator + 1], AVAILABLE_CONVERSION))
 			{
 				iterator++;
 				printed += _conversion_handler(&ap, format[iterator]);
