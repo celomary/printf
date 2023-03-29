@@ -21,17 +21,24 @@ long int	_reverse_number(long int number)
  * _put_number - function that prints given number
  *
  * @number: number to be printed
+ * @is_space: pointer to is space
  * Return: length of the printed number
  */
-int		_put_number(long int number)
+int		_put_number(long int number, int *is_space)
 {
 	int		len;
 
 	len = 0;
+	if (*is_space && number >= 0)
+	{
+		_putchar(' ');
+		len++;
+		*is_space = 0;
+	}
 	if (number == 0)
 	{
 		_putchar('0');
-		return (1);
+		return (1 + len);
 	}
 	if (number < 0)
 	{

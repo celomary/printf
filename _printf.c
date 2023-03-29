@@ -5,9 +5,10 @@
  *
  * @format: format to check for white space
  * @iterator: pointer to current position in the format
- * Return: printed characters
+ * @is_space: pointer to isSpace
+ * Return: nothing
  */
-int		skip_whitespace(const char *format, int *iterator)
+void		skip_whitespace(const char *format, int *iterator, int *is_space)
 {
 	int		to_check;
 
@@ -16,10 +17,8 @@ int		skip_whitespace(const char *format, int *iterator)
 	;
 	if (to_check && (format[*iterator] == 'd' || format[*iterator] == 'i'))
 	{
-		_putchar(' ');
-		return (1);
+		*is_space = 1;
 	}
-	return (0);
 }
 /**
  * _printf - function that produce output according to the format
@@ -32,9 +31,11 @@ int	_printf(const char *format, ...)
 	va_list ap;
 	int		printed;
 	int		iterator;
+	int		is_space;
 
 	if (format == NULL)
 		return (-1);
+	is_space = 0;
 	printed = 0;
 	iterator = 0;
 	va_start(ap, format);
@@ -42,9 +43,9 @@ int	_printf(const char *format, ...)
 	{
 		if (format[iterator] == '%')
 		{
-			printed += skip_whitespace(format, &iterator);
+			skip_whitespace(format, &iterator, &is_space);
 			if (_is_inset(format[iterator], AVAILABLE_CONVERSION))
-				printed += _conversion_handler(&ap, format[iterator]);
+				printed += _conversion_handler(&ap, format[iterator], &is_space);
 			else
 			{
 				if (format[iterator] == '\0')
