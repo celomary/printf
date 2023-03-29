@@ -42,7 +42,7 @@ int	_printf(const char *format, ...)
 	{
 		if (format[iterator] == '%')
 		{
-			printed = skip_whitespace(format, &iterator);
+			printed += skip_whitespace(format, &iterator);
 			if (_is_inset(format[iterator], AVAILABLE_CONVERSION))
 				printed += _conversion_handler(&ap, format[iterator]);
 			else
