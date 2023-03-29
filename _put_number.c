@@ -1,21 +1,20 @@
 #include "main.h"
+#include <stdio.h>
 /**
- * _reverse_number - reverse the given number and returns it
+ * _put_number_helper - function helper to put number
  *
  * @number: number to be reverse
- * Return: revesed number
+ * Return: length of printed number
  */
-long int	_reverse_number(long int number)
+long int	_put_number_helper(long int number)
 {
-	long int	reversed_number;
+	int		len;
 
-	reversed_number = 0;
-	while (number)
-	{
-		reversed_number = reversed_number * 10 + number % 10;
-		number /= 10;
-	}
-	return (reversed_number);
+	if (!number)
+		return (0);
+	len = _put_number_helper(number / 10);
+	_putchar(number % 10 + 48);
+	return (1 + len);
 }
 /**
  * _put_number - function that prints given number
@@ -26,7 +25,7 @@ long int	_reverse_number(long int number)
  */
 int		_put_number(long int number, int *is_space)
 {
-	int		len;
+	int	len;
 
 	len = 0;
 	if (*is_space && number >= 0)
@@ -46,12 +45,5 @@ int		_put_number(long int number, int *is_space)
 		len++;
 		number *= -1;
 	}
-	number = _reverse_number(number);
-	while (number)
-	{
-		_putchar(number % 10 + 48);
-		number /= 10;
-		len++;
-	}
-	return (len);
+	return (len + _put_number_helper(number));
 }
